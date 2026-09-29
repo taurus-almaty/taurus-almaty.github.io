@@ -1,0 +1,671 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Taurus — Татьяна Игеликова · Таро, чистки воском, нумерология</title>
+<meta name="description" content="Расклады Таро, диагностика и чистка воском, нумерология. 12 лет практики. Лично в Алматы и онлайн из любой страны. Запись в WhatsApp.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Taurus — Татьяна Игеликова · Таро, чистки воском, нумерология">
+<meta property="og:description" content="Расклады Таро, диагностика и чистка воском, нумерология. 12 лет практики. Лично в Алматы и онлайн из любой страны. Запись в WhatsApp.">
+<meta property="og:url" content="https://taurus-almaty.github.io/">
+<meta property="og:image" content="https://taurus-almaty.github.io/img/portrait-warm.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#120d19; --bg2:#1b1425; --card:#261c33; --ink:#f3ece2; --muted:#b9ad9f;
+    --gold:#d8b26a; --gold2:#f0d49a; --wine:#7a2d45; --violet:#5b3a8c;
+    --r:24px;
+    --serif:"Cormorant Garamond",Georgia,"Times New Roman",serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;overflow-x:clip}
+  body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 -apple-system,"Segoe UI",Roboto,sans-serif;overflow-x:hidden}
+  h1,h2,h3{font-family:var(--serif);font-weight:500;margin:0}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 22px;position:relative}
+  section{padding:84px 0;position:relative}
+  .todo{border:1.5px dashed #e8c14a;background:rgba(232,193,74,.08);color:#f2d98a;border-radius:10px;padding:2px 8px;font-size:.85em}
+
+  /* ---------- живой фон ---------- */
+  #dust{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+  .orbs{position:fixed;inset:0;overflow:hidden;z-index:0;pointer-events:none;filter:blur(70px);opacity:.55}
+  .orbs i{position:absolute;border-radius:50%;animation:drift 38s ease-in-out infinite alternate}
+  .orbs i:nth-child(1){width:46vw;height:46vw;left:48%;top:4%;background:radial-gradient(circle,rgba(122,45,69,.9),transparent 65%)}
+  .orbs i:nth-child(2){width:40vw;height:40vw;left:6%;top:48%;background:radial-gradient(circle,rgba(91,58,140,.85),transparent 65%);animation-duration:46s;animation-delay:-12s}
+  .orbs i:nth-child(3){width:30vw;height:30vw;left:60%;top:62%;background:radial-gradient(circle,rgba(216,178,106,.35),transparent 65%);animation-duration:52s;animation-delay:-24s}
+  @keyframes drift{0%{transform:translate(0,0) scale(1)}50%{transform:translate(-6vw,4vh) scale(1.12)}100%{transform:translate(5vw,-5vh) scale(.95)}}
+  main,header,footer{position:relative;z-index:1}
+
+  /* ---------- кнопки ---------- */
+  .btn{position:relative;display:inline-block;text-decoration:none;color:#1a1208;font-weight:600;padding:17px 32px;border-radius:999px;
+       background:linear-gradient(180deg,var(--gold2),var(--gold));overflow:hidden;
+       box-shadow:0 12px 30px rgba(216,178,106,.28), inset 0 -3px 0 rgba(0,0,0,.18), inset 0 2px 0 rgba(255,255,255,.45);
+       transition:transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s}
+  .btn:after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;
+       background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-20deg);animation:sheen 5.5s ease-in-out infinite}
+  @keyframes sheen{0%,70%{left:-60%}100%{left:130%}}
+  .btn:hover{transform:translateY(-3px);box-shadow:0 18px 40px rgba(240,212,154,.4), 0 0 0 6px rgba(216,178,106,.12), inset 0 -3px 0 rgba(0,0,0,.18), inset 0 2px 0 rgba(255,255,255,.45)}
+  .btn.ghost{background:rgba(216,178,106,.06);color:var(--gold2);box-shadow:inset 0 0 0 1.5px var(--gold)}
+  .btn.ghost:after{display:none}
+  .btn.ghost:hover{background:rgba(216,178,106,.14);box-shadow:inset 0 0 0 1.5px var(--gold2), 0 10px 26px rgba(216,178,106,.18)}
+
+  /* ---------- карточки: объём + свет за курсором ---------- */
+  .card{position:relative;background:linear-gradient(180deg,rgba(52,38,70,.92),rgba(34,25,46,.92));border-radius:var(--r);padding:28px;
+        box-shadow:0 18px 40px rgba(0,0,0,.4), inset 0 1px 0 rgba(255,255,255,.08), inset 0 0 0 1px rgba(216,178,106,.1);
+        transition:transform .45s cubic-bezier(.2,.8,.2,1), box-shadow .45s; isolation:isolate}
+  .card:before{content:"";position:absolute;inset:0;border-radius:inherit;z-index:-1;opacity:0;transition:opacity .4s;
+        background:radial-gradient(320px circle at var(--mx,50%) var(--my,0%),rgba(240,212,154,.16),transparent 60%)}
+  .card:hover{transform:translateY(-6px);box-shadow:0 26px 54px rgba(0,0,0,.5), 0 0 34px rgba(216,178,106,.12), inset 0 1px 0 rgba(255,255,255,.1), inset 0 0 0 1px rgba(216,178,106,.35)}
+  .card:hover:before{opacity:1}
+
+  .eyebrow{color:var(--gold);letter-spacing:.18em;text-transform:uppercase;font-size:13px;display:flex;align-items:center;gap:12px}
+  .eyebrow:before{content:"✦";font-size:12px;color:var(--gold2);text-shadow:0 0 12px var(--gold)}
+  h2{font-size:44px;line-height:1.1;margin:12px 0 34px}
+  .shimmer{background:linear-gradient(100deg,var(--gold) 20%,#fff3d2 40%,var(--gold2) 55%,var(--gold) 80%);background-size:250% 100%;
+        -webkit-background-clip:text;background-clip:text;color:transparent;animation:shim 7s linear infinite}
+  @keyframes shim{0%{background-position:120% 0}100%{background-position:-120% 0}}
+
+  /* ---------- первый экран ---------- */
+  .hero > .wrap{width:100%}
+  .topbar{display:flex;justify-content:space-between;align-items:center;padding-top:26px}
+  .brand{font-family:var(--serif);letter-spacing:.36em;font-size:18px;color:var(--gold2);font-weight:600}
+  .brand small{font-family:-apple-system,sans-serif;letter-spacing:.06em;color:var(--muted);font-size:12px;margin-left:12px;font-weight:400}
+  .hero{padding:0 0 90px;min-height:100vh;display:flex;flex-direction:column}
+  .hero .grid{flex:1;display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;padding-top:30px}
+  .hero h1{font-size:62px;line-height:1.04;margin:18px 0 22px;letter-spacing:-.005em}
+  .hero p.lead{color:var(--muted);font-size:19px;margin:0 0 32px;max-width:560px}
+  .hero .grid > div{min-width:0}
+  .facts{list-style:none;padding:0;margin:34px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:14px 26px;max-width:600px}
+  .facts li{display:flex;align-items:center;gap:12px;color:var(--muted);font-size:15px;line-height:1.35}
+  .facts i{flex:0 0 34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-style:normal;font-size:14px;color:#1a1208;
+        background:radial-gradient(circle at 35% 30%,#fff3cf,var(--gold2) 40%,var(--gold) 75%,#9c7a3c);box-shadow:0 6px 14px rgba(0,0,0,.4),0 0 16px rgba(216,178,106,.25)}
+  .facts b{color:var(--ink);font-weight:600}
+
+  .stage{position:relative;height:620px;perspective:1000px}
+  .arch{position:absolute;left:50%;top:50%;width:380px;height:520px;transform:translate(-50%,-50%);border-radius:190px 190px 34px 34px;padding:5px;
+        background:conic-gradient(from var(--a,0deg),rgba(216,178,106,.1),var(--gold2),rgba(216,178,106,.1) 30%,rgba(122,45,69,.6),rgba(216,178,106,.1) 70%,var(--gold));
+        box-shadow:0 30px 70px rgba(0,0,0,.55), 0 0 60px rgba(216,178,106,.18);animation:spin 14s linear infinite}
+  @property --a{syntax:"<angle>";inherits:false;initial-value:0deg}
+  @keyframes spin{to{--a:360deg}}
+  .arch .ph{width:100%;height:100%;border-radius:186px 186px 30px 30px;background:url(img/portrait-warm.jpg) 50% 22%/auto 128%;position:relative;overflow:hidden}
+  .arch .ph:after{content:"";position:absolute;inset:0;background:radial-gradient(90% 60% at 50% 18%,rgba(255,244,220,.18),transparent 70%)}
+  .ring{position:absolute;left:50%;top:50%;width:560px;height:560px;margin:-280px 0 0 -280px;border-radius:50%;
+        box-shadow:inset 0 0 0 1px rgba(216,178,106,.18);animation:rot 60s linear infinite}
+  .ring:before,.ring:after{content:"✦";position:absolute;color:var(--gold2);text-shadow:0 0 14px var(--gold);font-size:16px}
+  .ring:before{top:-10px;left:50%}.ring:after{bottom:-10px;left:30%}
+  .ring.r2{width:470px;height:470px;margin:-235px 0 0 -235px;animation-duration:90s;animation-direction:reverse;box-shadow:inset 0 0 0 1px rgba(216,178,106,.1)}
+  .ring.r2:before{content:"☾";top:40%;left:-8px;font-size:18px}
+  .ring.r2:after{content:"✧";bottom:22%;left:auto;right:-8px}
+  @keyframes rot{to{transform:rotate(360deg)}}
+  .tcard{position:absolute;width:112px;height:180px;border-radius:14px;
+        background:radial-gradient(circle at 50% 50%,rgba(240,212,154,.25) 0 18%,transparent 19%),
+                   repeating-linear-gradient(45deg,rgba(216,178,106,.08) 0 2px,transparent 2px 12px),
+                   linear-gradient(160deg,#3b2658,#1d1330);
+        box-shadow:0 20px 40px rgba(0,0,0,.5), inset 0 0 0 2px rgba(216,178,106,.55), inset 0 0 0 7px #241737, inset 0 0 0 8px rgba(216,178,106,.35);
+        display:flex;align-items:center;justify-content:center;color:var(--gold2);font-size:30px;text-shadow:0 0 16px var(--gold)}
+  .tcard.c1{left:0;top:70px;transform:rotate(-14deg);animation:float1 8s ease-in-out infinite}
+  .tcard.c2{right:-6px;top:30px;transform:rotate(11deg);animation:float2 9s ease-in-out infinite}
+  @keyframes float1{50%{transform:rotate(-10deg) translateY(-16px)}}
+  @keyframes float2{50%{transform:rotate(15deg) translateY(-12px)}}
+
+  /* свеча */
+  .candle{position:absolute;left:34px;bottom:26px;width:70px;height:210px;z-index:3}
+  .candle .halo{position:absolute;left:50%;top:-40px;width:260px;height:260px;margin-left:-130px;border-radius:50%;
+        background:radial-gradient(circle,rgba(255,196,110,.5),rgba(255,150,60,.15) 40%,transparent 68%);animation:breathe 3.2s ease-in-out infinite;mix-blend-mode:screen}
+  @keyframes breathe{0%,100%{transform:scale(1);opacity:.85}45%{transform:scale(1.08);opacity:1}70%{transform:scale(.96);opacity:.8}}
+  .candle .flame{position:absolute;left:50%;top:18px;width:22px;height:52px;margin-left:-11px;border-radius:50% 50% 45% 45%/62% 62% 38% 38%;
+        background:radial-gradient(ellipse at 50% 72%,#fff 0 14%,#ffeaa6 26%,#ffb444 52%,rgba(255,110,30,.0) 74%);
+        filter:drop-shadow(0 0 10px rgba(255,180,80,.9)) drop-shadow(0 0 26px rgba(255,140,50,.6));transform-origin:50% 90%;animation:flick 2.6s ease-in-out infinite}
+  .candle .flame:after{content:"";position:absolute;left:50%;bottom:6px;width:8px;height:14px;margin-left:-4px;border-radius:50%;background:rgba(90,120,255,.55);filter:blur(2px)}
+  @keyframes flick{0%,100%{transform:scale(1,1) rotate(0)}18%{transform:scale(.94,1.06) rotate(-2deg)}33%{transform:scale(1.05,.95) rotate(2deg)}51%{transform:scale(.97,1.08) rotate(-1deg)}67%{transform:scale(1.03,.97) rotate(3deg)}84%{transform:scale(.96,1.04) rotate(-2deg)}}
+  .candle .wick{position:absolute;left:50%;top:64px;width:3px;height:12px;margin-left:-1.5px;background:#2a1a10;border-radius:2px}
+  .candle .wax{position:absolute;left:0;right:0;top:74px;bottom:0;border-radius:18px 18px 14px 14px;
+        background:linear-gradient(90deg,#c9b08a,#f4e6c8 35%,#fff6e2 50%,#e9d6b0 70%,#b89b72);
+        box-shadow:inset 0 -12px 20px rgba(0,0,0,.25), 0 16px 30px rgba(0,0,0,.45), 0 -10px 30px rgba(255,190,100,.35)}
+  .candle .wax:before{content:"";position:absolute;left:4px;right:4px;top:-6px;height:14px;border-radius:50%;background:radial-gradient(ellipse at 50% 40%,#fff8ea,#e8d3ad 70%);box-shadow:0 0 18px rgba(255,200,120,.7)}
+  .candle .wax:after{content:"";position:absolute;left:16px;top:4px;width:9px;height:42px;border-radius:0 0 8px 8px;background:linear-gradient(90deg,#efdcb8,#fff4dd)}
+
+  /* ---------- боли ---------- */
+  .pains{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+  .pains .card{display:flex;gap:20px;align-items:flex-start}
+  .ico{flex:0 0 56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;color:#1a1208;
+       background:radial-gradient(circle at 35% 30%,#fff3cf,var(--gold2) 40%,var(--gold) 75%,#9c7a3c);
+       box-shadow:0 8px 18px rgba(0,0,0,.4), 0 0 22px rgba(216,178,106,.3), inset 0 -3px 4px rgba(0,0,0,.2)}
+  .pains h3{font-size:27px;margin-bottom:6px;color:var(--gold2)}
+  .pains p{margin:0;color:var(--muted)}
+
+  /* ---------- услуги ---------- */
+  .bg2{background:linear-gradient(180deg,rgba(27,20,37,0),rgba(27,20,37,.85) 12%,rgba(27,20,37,.85) 88%,rgba(27,20,37,0))}
+  .services{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .svc{display:flex;flex-direction:column}
+  .svc h3{font-size:28px;line-height:1.15;margin-bottom:10px}
+  .svc p{color:var(--muted);margin:0 0 20px;flex:1}
+  .price{font-family:var(--serif);font-size:34px;font-weight:600;color:var(--gold2);margin-bottom:18px;line-height:1}
+  .price small{font-family:-apple-system,sans-serif;font-size:14px;color:var(--muted);font-weight:400;margin-left:6px}
+  .svc .btn{text-align:center}
+  .svc.hit{background:linear-gradient(180deg,rgba(92,48,82,.95),rgba(44,26,52,.95));box-shadow:0 24px 50px rgba(0,0,0,.5), 0 0 40px rgba(216,178,106,.16), inset 0 0 0 1.5px var(--gold)}
+  .tag{display:inline-block;font-size:12px;letter-spacing:.06em;color:#1a1208;background:linear-gradient(180deg,var(--gold2),var(--gold));border-radius:999px;padding:4px 12px;margin-bottom:14px;align-self:flex-start;font-weight:600}
+  .sub-h{font-size:34px;margin:66px 0 26px;display:flex;align-items:center;gap:16px}
+  .sub-h:after{content:"";flex:1;height:1px;background:linear-gradient(90deg,rgba(216,178,106,.5),transparent)}
+
+  /* ---------- обучение ---------- */
+  .lead2{color:var(--muted);max-width:640px;margin:-18px 0 40px}
+  .track{margin-bottom:54px}
+  .track-head{display:flex;align-items:center;gap:16px;margin-bottom:22px}
+  .track-head h3{font-size:36px;color:var(--gold2)}
+  .track-head span.n{color:var(--muted);font-size:14px;padding:5px 14px;border-radius:999px;box-shadow:inset 0 0 0 1px rgba(216,178,106,.3)}
+  .tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch}
+  .tier{display:flex;flex-direction:column}
+  .lvl{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+  .dots{display:inline-flex;gap:5px;margin-left:8px;vertical-align:middle}
+  .dots i{width:8px;height:8px;border-radius:50%;background:rgba(216,178,106,.25)}
+  .dots i.on{background:var(--gold2);box-shadow:0 0 8px var(--gold)}
+  .tier h4{font-family:var(--serif);font-weight:600;font-size:30px;margin:8px 0 14px;line-height:1.1}
+  .tier ul{list-style:none;padding:0;margin:0 0 22px;flex:1}
+  .tier li{position:relative;padding:7px 0 7px 32px;color:var(--ink);border-bottom:1px solid rgba(255,255,255,.06)}
+  .tier li:last-child{border-bottom:0}
+  .tier li:before{content:"✓";position:absolute;left:0;top:7px;width:22px;height:22px;border-radius:50%;font-size:12px;display:flex;align-items:center;justify-content:center;
+        color:#1a1208;background:linear-gradient(180deg,var(--gold2),var(--gold))}
+  .tier li.no{color:var(--muted)}
+  .tier li.no:before{content:"–";background:rgba(255,255,255,.1);color:var(--muted)}
+  .tier .price{margin:0 0 16px}
+  .tier.top{background:linear-gradient(180deg,rgba(92,48,82,.95),rgba(44,26,52,.95));box-shadow:0 24px 50px rgba(0,0,0,.5), 0 0 44px rgba(216,178,106,.18), inset 0 0 0 1.5px var(--gold)}
+  .bonus{margin:-6px 0 20px;padding:12px 16px;border-radius:16px;background:rgba(216,178,106,.1);box-shadow:inset 0 0 0 1px rgba(216,178,106,.35);font-size:15px}
+  .bonus b{color:var(--gold2)}
+  .grim{display:grid;grid-template-columns:240px 1fr auto;gap:40px;align-items:center;padding:34px 40px}
+  .deck{position:relative;height:210px}
+  .deck .tcard{width:120px;height:190px;left:50%;top:10px;margin-left:-60px;font-size:34px;
+        background:radial-gradient(circle,rgba(160,40,60,.45) 0 20%,transparent 21%),repeating-linear-gradient(-45deg,rgba(216,178,106,.07) 0 2px,transparent 2px 11px),linear-gradient(160deg,#241629,#0d0910)}
+  .deck .tcard:nth-child(1){transform:rotate(-16deg) translateX(-34px)}
+  .deck .tcard:nth-child(2){transform:rotate(-4deg) translateX(-8px)}
+  .deck .tcard:nth-child(3){transform:rotate(9deg) translateX(22px)}
+  .grim:hover .deck .tcard:nth-child(1){transform:rotate(-24deg) translateX(-56px)}
+  .grim:hover .deck .tcard:nth-child(3){transform:rotate(17deg) translateX(46px)}
+  .deck .tcard{transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+  .grim h3{font-size:38px;line-height:1.1;color:var(--gold2);margin-bottom:12px}
+  .grim ul{margin:0}
+  .grim .side{text-align:center}
+
+  /* ---------- шаги ---------- */
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;counter-reset:s;position:relative}
+  .steps:before{content:"";position:absolute;left:8%;right:8%;top:50px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.5}
+  .steps .card:before{display:none}
+  .steps .num{counter-increment:s;display:flex;width:50px;height:50px;border-radius:50%;align-items:center;justify-content:center;margin-bottom:16px;
+        font-family:var(--serif);font-size:26px;font-weight:600;color:#1a1208;background:radial-gradient(circle at 35% 30%,#fff3cf,var(--gold2) 40%,var(--gold) 75%,#9c7a3c);
+        box-shadow:0 0 0 6px rgba(18,13,25,.9), 0 0 24px rgba(216,178,106,.4)}
+  .steps .num:after{content:counter(s)}
+  .steps p{margin:0;color:var(--muted)}
+  .steps b{color:var(--ink);display:block;margin-bottom:4px;font-size:18px}
+
+  /* ---------- обо мне ---------- */
+  .about{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:center}
+  .about .arch{position:relative;left:auto;top:auto;transform:none;width:100%;height:auto;aspect-ratio:4/5.2;animation-duration:20s}
+  .about .arch .ph{background-image:url(img/portrait-white-warm.jpg);background-position:50% 0;background-size:auto 120%}
+  .about p{color:#e3d9cc}
+
+  /* ---------- отзывы ---------- */
+  .reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .shot{aspect-ratio:9/16;border-radius:26px;background:linear-gradient(180deg,#2a2037,#1d1528);display:flex;align-items:center;justify-content:center;
+        text-align:center;padding:16px;box-shadow:0 18px 36px rgba(0,0,0,.4), inset 0 0 0 1px rgba(216,178,106,.15)}
+
+  /* ---------- вопросы ---------- */
+  details{background:linear-gradient(180deg,rgba(52,38,70,.9),rgba(34,25,46,.9));border-radius:20px;padding:20px 24px;margin-bottom:14px;
+        box-shadow:0 10px 24px rgba(0,0,0,.3), inset 0 0 0 1px rgba(216,178,106,.1);transition:box-shadow .3s}
+  details[open]{box-shadow:0 14px 30px rgba(0,0,0,.35), inset 0 0 0 1px rgba(216,178,106,.35)}
+  summary{cursor:pointer;font-family:var(--serif);font-size:24px;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:16px;align-items:center}
+  summary::-webkit-details-marker{display:none}
+  summary:after{content:"+";flex:0 0 34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:-apple-system,sans-serif;font-size:20px;
+        color:var(--gold2);box-shadow:inset 0 0 0 1px rgba(216,178,106,.4);transition:transform .35s}
+  details[open] summary:after{transform:rotate(45deg)}
+  details p{color:var(--muted);margin:12px 0 0;animation:fadein .5s}
+  @keyframes fadein{from{opacity:0;transform:translateY(-6px)}}
+
+  .final{text-align:center;padding:110px 0}
+  .final h2{font-size:52px}
+  .final .btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:30px}
+  .final .candle{position:relative;left:auto;bottom:auto;margin:0 auto 26px;transform:scale(.8)}
+  footer{color:#7d7288;font-size:14px;text-align:center;padding:30px 0 120px}
+
+  .sticky{position:fixed;left:0;right:0;bottom:0;padding:12px 16px;background:rgba(18,13,25,.9);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+          display:none;border-top:1px solid rgba(216,178,106,.2);z-index:5}
+  .sticky .btn{display:block;text-align:center}
+
+  /* ---------- кнопка звука ---------- */
+  .snd{position:fixed;right:22px;top:22px;z-index:6;display:flex;align-items:center;gap:10px;cursor:pointer;border:0;font:inherit;font-size:14px;
+       color:var(--gold2);background:rgba(30,22,40,.75);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);padding:10px 16px 10px 12px;border-radius:999px;
+       box-shadow:0 10px 24px rgba(0,0,0,.4), inset 0 0 0 1px rgba(216,178,106,.35);transition:box-shadow .3s}
+  .snd:hover{box-shadow:0 10px 24px rgba(0,0,0,.4), inset 0 0 0 1px var(--gold2), 0 0 20px rgba(216,178,106,.25)}
+  .snd .bars{display:flex;gap:3px;align-items:flex-end;height:16px;width:22px}
+  .snd .bars i{width:3px;height:4px;border-radius:2px;background:var(--gold)}
+  .snd.on .bars i{animation:eq 1.1s ease-in-out infinite}
+  .snd.on .bars i:nth-child(2){animation-delay:-.3s}.snd.on .bars i:nth-child(3){animation-delay:-.6s}.snd.on .bars i:nth-child(4){animation-delay:-.9s}
+  @keyframes eq{0%,100%{height:4px}50%{height:16px}}
+
+  /* ---------- появление при прокрутке ---------- */
+  .js .rv{opacity:0;transform:translateY(28px) scale(.985);transition:opacity .9s cubic-bezier(.2,.8,.2,1),transform .9s cubic-bezier(.2,.8,.2,1);transition-delay:var(--d,0s)}
+  .js .rv.in{opacity:1;transform:none}
+  .js .card.rv.in:hover{transform:translateY(-6px)}
+
+  @media (max-width:900px){
+    body{font-size:16px}
+    section{padding:60px 0}
+    .hero{min-height:0}
+    .hero .grid,.about{grid-template-columns:1fr;gap:20px}
+    .hero h1{font-size:40px}
+    .facts{grid-template-columns:1fr}
+    .brand small{display:block;margin:6px 0 0}
+    .stage{height:470px;order:-1;margin:0 -10px}
+    .arch{width:300px;height:410px}
+    .ring{width:360px;height:360px;margin:-180px 0 0 -180px}
+    .ring.r2{width:320px;height:320px;margin:-160px 0 0 -160px}
+    .tcard{width:84px;height:136px;font-size:22px}
+    .tcard.c1{left:2px;top:40px}.tcard.c2{right:2px;top:20px}
+    .candle{left:18px;bottom:20px;transform:scale(.75);transform-origin:left bottom}
+    .pains,.services,.steps,.reviews,.tiers{grid-template-columns:1fr}
+    .steps:before{display:none}
+    h2{font-size:34px}
+    .sub-h{font-size:28px}
+    .track-head h3{font-size:30px}
+    .grim{grid-template-columns:1fr;padding:28px;gap:10px}
+    .grim .side{text-align:left}
+    .about .arch{max-width:340px;margin:0 auto}
+    .final h2{font-size:38px}
+    .sticky{display:block}
+    .snd{top:14px;right:14px;padding:8px 12px 8px 10px}
+    .snd .lbl{display:none}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    *,*:before,*:after{animation:none !important;transition:none !important;scroll-behavior:auto !important}
+    .js .rv{opacity:1;transform:none}
+  }
+</style>
+</head>
+<body>
+<script>document.documentElement.classList.add('js')</script>
+<canvas id="dust"></canvas>
+<div class="orbs"><i></i><i></i><i></i></div>
+
+<button class="snd" id="snd" type="button" aria-pressed="false" aria-label="Включить звук">
+  <span class="bars"><i></i><i></i><i></i><i></i></span><span class="lbl">Звук выкл.</span>
+</button>
+
+<!-- 1. Первый экран -->
+<header class="hero">
+  <div class="wrap topbar"><div class="brand">TAURUS<small>пространство Татьяны Игеликовой</small></div></div>
+  <div class="wrap grid">
+    <div>
+      <div class="eyebrow rv">Городская ведьма · таро · чистки воском</div>
+      <h1 class="rv" style="--d:.1s">Разберём вашу ситуацию на картах и <span class="shimmer">снимем то, что мешает</span></h1>
+      <p class="lead rv" style="--d:.2s">Диагностика на Таро находит корень проблемы. Чистка воском убирает то, что мешает. Без «волшебной пыли». Расклады и чистки провожу удалённо, из любого города и страны.</p>
+      <div class="rv" style="--d:.3s"><a class="btn" href="https://wa.me/77072117701?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%A2%D0%B0%D1%82%D1%8C%D1%8F%D0%BD%D0%B0%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BD%D0%B0%20%D0%BA%D0%BE%D0%BD%D1%81%D1%83%D0%BB%D1%8C%D1%82%D0%B0%D1%86%D0%B8%D1%8E." target="_blank" rel="noopener">Записаться в WhatsApp</a></div>
+      <ul class="facts rv" style="--d:.4s">
+        <li><i>✦</i><span><b>12 лет</b> практики</span></li>
+        <li><i>☾</i><span>Лично в <b>Алматы</b> и онлайн из любой страны</span></li>
+        <li><i>✧</i><span>Оплата в <b>любой валюте</b></span></li>
+        <li><i>◈</i><span>Обучаю <b>Таро и нумерологии</b></span></li>
+      </ul>
+    </div>
+    <div class="stage" id="stage">
+      <div class="ring" data-depth="8"></div>
+      <div class="ring r2" data-depth="14"></div>
+      <div class="tcard c1" data-depth="26">☾</div>
+      <div class="tcard c2" data-depth="22">✦</div>
+      <div class="arch" data-depth="10"><div class="ph"></div></div>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- 2. С чем приходят -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow rv">С чем ко мне приходят</div>
+    <h2 class="rv">Узнаёте себя?</h2>
+    <div class="pains">
+      <div class="card rv"><div class="ico">♡</div><div><h3>Отношения</h3><p>Он отдалился, молчит или ушёл. Хочется понять, что у него на душе и есть ли у вас будущее.</p></div></div>
+      <div class="card rv" style="--d:.08s"><div class="ico">✦</div><div><h3>Деньги и работа</h3><p>Работаете много, а деньги уходят сквозь пальцы. Стоит ли менять работу, открывать дело, соглашаться на предложение.</p></div></div>
+      <div class="card rv" style="--d:.16s"><div class="ico">☾</div><div><h3>Чёрная полоса</h3><p>Всё валится из рук, болезни, ссоры, усталость без причины. Ощущение, что на вас что-то «повесили».</p></div></div>
+      <div class="card rv" style="--d:.24s"><div class="ico">⚖&#xFE0E;</div><div><h3>Трудный выбор</h3><p>Переезд, развод, крупная покупка. Нужно увидеть последствия каждого пути, прежде чем решать.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. Услуги и цены (из хайлайтов @numerolog_kz1: прайс таро 11.01.2025, прайс нумерологии 06.01.2025) -->
+<section class="bg2" id="price">
+  <div class="wrap">
+    <div class="eyebrow rv">Услуги и цены</div>
+    <h2 class="rv">Расклады и чистки</h2>
+    <div class="services">
+      <div class="card svc hit rv">
+        <span class="tag">С чего начать</span>
+        <h3>Расклад Таро</h3>
+        <p>Любовь, работа, здоровье, запутанная ситуация. Чёткий ответ на ваш вопрос и выход из тупика.</p>
+        <div class="price">10 000 ₸</div>
+        <a class="btn" href="https://wa.me/77072117701?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%A2%D0%B0%D1%82%D1%8C%D1%8F%D0%BD%D0%B0%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%3A%20%D0%A0%D0%B0%D1%81%D0%BA%D0%BB%D0%B0%D0%B4%20%D0%A2%D0%B0%D1%80%D0%BE." target="_blank" rel="noopener">Записаться</a>
+      </div>
+      <div class="card svc rv" style="--d:.08s">
+        <h3>Диагностика и чистка воском</h3>
+        <p>Отливка воском показывает, что на вас давит: негатив, приворот, соперница. Затем убираю это.</p>
+        <div class="price">20 000 ₸</div>
+        <a class="btn ghost" href="https://wa.me/77072117701?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%A2%D0%B0%D1%82%D1%8C%D1%8F%D0%BD%D0%B0%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%3A%20%D0%94%D0%B8%D0%B0%D0%B3%D0%BD%D0%BE%D1%81%D1%82%D0%B8%D0%BA%D0%B0%20%D0%B8%20%D1%87%D0%B8%D1%81%D1%82%D0%BA%D0%B0%20%D0%B2%D0%BE%D1%81%D0%BA%D0%BE%D0%BC." target="_blank" rel="noopener">Записаться</a>
+      </div>
+      <div class="card svc rv" style="--d:.16s">
+        <h3>Моделирование желаний через Таро</h3>
+        <p>Настраиваем энергию на то, чего хотите: любовь, деньги, гармонию. Снимаем внутренние блоки.</p>
+        <div class="price">15 000 ₸</div>
+        <a class="btn ghost" href="https://wa.me/77072117701?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%A2%D0%B0%D1%82%D1%8C%D1%8F%D0%BD%D0%B0%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%3A%20%D0%9C%D0%BE%D0%B4%D0%B5%D0%BB%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%20%D0%B6%D0%B5%D0%BB%D0%B0%D0%BD%D0%B8%D0%B9%20%D1%87%D0%B5%D1%80%D0%B5%D0%B7%20%D0%A2%D0%B0%D1%80%D0%BE." target="_blank" rel="noopener">Записаться</a>
+      </div>
+      <div class="card svc rv">
+        <h3>Годовой расклад</h3>
+        <p>Прогноз на 12 месяцев по всем сферам и ключевые события года. Делают в конце или начале года и в день рождения.</p>
+        <div class="price">15 000 ₸</div>
+        <a class="btn ghost" href="https://wa.me/77072117701?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%A2%D0%B0%D1%82%D1%8C%D1%8F%D0%BD%D0%B0%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%3A%20%D0%93%D0%BE%D0%B4%D0%BE%D0%B2%D0%BE%D0%B9%20%D1%80%D0%B0%D1%81%D0%BA%D0%BB%D0%B0%D0%B4." target="_blank" rel="noopener">Заказать</a>
+      </div>
+      <div class="card svc rv" style="--d:.08s">
+        <h3>Таро-нумерология имени</h3>
+        <p>Подходит ли ваше имя вашему предназначению и как использовать его для удачи.</p>
+        <div class="price">25 000 ₸</div>
+        <a class="btn ghost" href="https://wa.me/77072117701?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%A2%D0%B0%D1%82%D1%8C%D1%8F%D0%BD%D0%B0%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%3A%20%D0%A2%D0%B0%D1%80%D0%BE-%D0%BD%D1%83%D0%BC%D0%B5%D1%80%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F%20%D0%B8%D0%BC%D0%B5%D0%BD%D0%B8." target="_blank" rel="noopener">Записаться</a>
+      </div>
+    </div>
+
+    <h2 class="sub-h rv">Нумерология</h2>
+    <div class="services">
+      <div class="card svc rv">
+        <h3>Квадрат Пифагора</h3>
+        <p>Сильные стороны, скрытые таланты, почему повторяются одни и те же трудности.</p>
+        <div class="price">20 000 ₸</div>
+        <a class="btn ghost" href="https://wa.me/77072117701?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%A2%D0%B0%D1%82%D1%8C%D1%8F%D0%BD%D0%B0%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%3A%20%D0%9A%D0%B2%D0%B0%D0%B4%D1%80%D0%B0%D1%82%20%D0%9F%D0%B8%D1%84%D0%B0%D0%B3%D0%BE%D1%80%D0%B0." target="_blank" rel="noopener">Записаться</a>
+      </div>
+      <div class="card svc rv" style="--d:.08s">
+        <h3>Кармическая нумерология</h3>
+        <p>Задачи души, уроки прошлого, отношения с собой и близкими.</p>
+        <div class="price">20 000 ₸</div>
+        <a class="btn ghost" href="https://wa.me/77072117701?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%A2%D0%B0%D1%82%D1%8C%D1%8F%D0%BD%D0%B0%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%3A%20%D0%9A%D0%B0%D1%80%D0%BC%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B0%D1%8F%20%D0%BD%D1%83%D0%BC%D0%B5%D1%80%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F." target="_blank" rel="noopener">Записаться</a>
+      </div>
+      <div class="card svc rv" style="--d:.16s">
+        <h3>Родовая нумерология</h3>
+        <p>Родовые блоки и долги, сила и ресурсы вашего рода.</p>
+        <div class="price">20 000 ₸</div>
+        <a class="btn ghost" href="https://wa.me/77072117701?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%A2%D0%B0%D1%82%D1%8C%D1%8F%D0%BD%D0%B0%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%3A%20%D0%A0%D0%BE%D0%B4%D0%BE%D0%B2%D0%B0%D1%8F%20%D0%BD%D1%83%D0%BC%D0%B5%D1%80%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F." target="_blank" rel="noopener">Записаться</a>
+      </div>
+      <div class="card svc rv">
+        <h3>Детская нумерология</h3>
+        <p>Таланты и особенности ребёнка, как выстроить с ним отношения.</p>
+        <div class="price">30 000 ₸</div>
+        <a class="btn ghost" href="https://wa.me/77072117701?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%A2%D0%B0%D1%82%D1%8C%D1%8F%D0%BD%D0%B0%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%3A%20%D0%94%D0%B5%D1%82%D1%81%D0%BA%D0%B0%D1%8F%20%D0%BD%D1%83%D0%BC%D0%B5%D1%80%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F." target="_blank" rel="noopener">Записаться</a>
+      </div>
+      <div class="card svc rv" style="--d:.08s">
+        <h3>Удачная дата</h3>
+        <p>Расчёт даты для свадьбы, переезда, открытия бизнеса, важного решения.</p>
+        <div class="price">10 000 ₸<small>за событие</small></div>
+        <a class="btn ghost" href="https://wa.me/77072117701?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%A2%D0%B0%D1%82%D1%8C%D1%8F%D0%BD%D0%B0%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%3A%20%D0%A3%D0%B4%D0%B0%D1%87%D0%BD%D0%B0%D1%8F%20%D0%B4%D0%B0%D1%82%D0%B0." target="_blank" rel="noopener">Рассчитать</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3б. Обучение (хайлайт «Обучение», 03.05.2023) -->
+<section id="learn">
+  <div class="wrap">
+    <div class="eyebrow rv">Обучение</div>
+    <h2 class="rv">Научиться самой</h2>
+    <p class="lead2 rv">Три направления. В Таро три уровня: чем выше уровень, тем больше моего участия.</p>
+
+    <div class="track">
+      <div class="track-head rv"><div class="ico">✦</div><h3>Таро</h3><span class="n">3 уровня</span></div>
+      <div class="tiers">
+        <div class="card tier rv">
+          <div class="lvl">Уровень<span class="dots"><i class="on"></i><i></i><i></i></span></div>
+          <h4>Подмастерье</h4>
+          <ul><li>Руководство по каждой карте</li><li class="no">Без обратной связи</li></ul>
+          <div class="price">50 000 ₸</div>
+          <a class="btn ghost" href="https://wa.me/77072117701?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%A2%D0%B0%D1%82%D1%8C%D1%8F%D0%BD%D0%B0%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D0%BF%D1%80%D0%BE%20%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%3A%20%D0%A2%D0%B0%D1%80%D0%BE%20%E2%80%94%20%D0%9F%D0%BE%D0%B4%D0%BC%D0%B0%D1%81%D1%82%D0%B5%D1%80%D1%8C%D0%B5." target="_blank" rel="noopener">Спросить о курсе</a>
+        </div>
+        <div class="card tier rv" style="--d:.08s">
+          <div class="lvl">Уровень<span class="dots"><i class="on"></i><i class="on"></i><i></i></span></div>
+          <h4>Мастер</h4>
+          <ul><li>Обратная связь</li></ul>
+          <div class="price">80 000 ₸</div>
+          <a class="btn ghost" href="https://wa.me/77072117701?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%A2%D0%B0%D1%82%D1%8C%D1%8F%D0%BD%D0%B0%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D0%BF%D1%80%D0%BE%20%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%3A%20%D0%A2%D0%B0%D1%80%D0%BE%20%E2%80%94%20%D0%9C%D0%B0%D1%81%D1%82%D0%B5%D1%80." target="_blank" rel="noopener">Спросить о курсе</a>
+        </div>
+        <div class="card tier top rv" style="--d:.16s">
+          <span class="tag">Максимум</span>
+          <div class="lvl">Уровень<span class="dots"><i class="on"></i><i class="on"></i><i class="on"></i></span></div>
+          <h4>Звёздный таролог</h4>
+          <ul><li>Обратная связь</li><li>3 месяца поддержки</li><li>Домашние задания</li></ul>
+          <div class="bonus"><b>Бонус:</b> «Денежная техника с картами Таро»</div>
+          <div class="price">100 000 ₸</div>
+          <a class="btn" href="https://wa.me/77072117701?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%A2%D0%B0%D1%82%D1%8C%D1%8F%D0%BD%D0%B0%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D0%BF%D1%80%D0%BE%20%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%3A%20%D0%A2%D0%B0%D1%80%D0%BE%20%E2%80%94%20%D0%97%D0%B2%D1%91%D0%B7%D0%B4%D0%BD%D1%8B%D0%B9%20%D1%82%D0%B0%D1%80%D0%BE%D0%BB%D0%BE%D0%B3." target="_blank" rel="noopener">Спросить о курсе</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="track">
+      <div class="track-head rv"><div class="ico">◈</div><h3>Нумерология</h3><span class="n">3 курса</span></div>
+      <div class="tiers">
+        <div class="card tier rv">
+          <div class="lvl">Курс</div>
+          <h4>Квадрат Пифагора</h4>
+          <ul><li>20 часов</li><li>Материалы</li><li>Месяц сопровождения</li></ul>
+          <div class="price">100 000 ₸</div>
+          <a class="btn ghost" href="https://wa.me/77072117701?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%A2%D0%B0%D1%82%D1%8C%D1%8F%D0%BD%D0%B0%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D0%BF%D1%80%D0%BE%20%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%3A%20%D0%9A%D0%B2%D0%B0%D0%B4%D1%80%D0%B0%D1%82%20%D0%9F%D0%B8%D1%84%D0%B0%D0%B3%D0%BE%D1%80%D0%B0." target="_blank" rel="noopener">Спросить о курсе</a>
+        </div>
+        <div class="card tier rv" style="--d:.08s">
+          <div class="lvl">Курс</div>
+          <h4>Детская нумерология</h4>
+          <div class="price">80 000 ₸</div>
+          <a class="btn ghost" href="https://wa.me/77072117701?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%A2%D0%B0%D1%82%D1%8C%D1%8F%D0%BD%D0%B0%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D0%BF%D1%80%D0%BE%20%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%3A%20%D0%94%D0%B5%D1%82%D1%81%D0%BA%D0%B0%D1%8F%20%D0%BD%D1%83%D0%BC%D0%B5%D1%80%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F." target="_blank" rel="noopener">Спросить о курсе</a>
+        </div>
+        <div class="card tier rv" style="--d:.16s">
+          <div class="lvl">Курс</div>
+          <h4>Таро-нумерология</h4>
+          <ul><li>Материалы</li><li>Месяц сопровождения</li><li>Онлайн или офлайн</li></ul>
+          <div class="price">50 000 ₸</div>
+          <a class="btn ghost" href="https://wa.me/77072117701?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%A2%D0%B0%D1%82%D1%8C%D1%8F%D0%BD%D0%B0%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D0%BF%D1%80%D0%BE%20%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%3A%20%D0%A2%D0%B0%D1%80%D0%BE-%D0%BD%D1%83%D0%BC%D0%B5%D1%80%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F." target="_blank" rel="noopener">Спросить о курсе</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card grim rv">
+      <div class="deck"><div class="tcard">☾</div><div class="tcard">✧</div><div class="tcard">✦</div></div>
+      <div class="tier">
+        <div class="lvl">Колода и курс</div>
+        <h3>«Чёрный гримуар»</h3>
+        <ul><li>Колода для диагностики негатива на человеке</li><li>Руководство по каждой карте</li><li>Обратная связь</li></ul>
+      </div>
+      <div class="side">
+        <div class="price">50 000 ₸</div>
+        <a class="btn ghost" href="https://wa.me/77072117701?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%A2%D0%B0%D1%82%D1%8C%D1%8F%D0%BD%D0%B0%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D0%BF%D1%80%D0%BE%20%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%3A%20%C2%AB%D0%A7%D1%91%D1%80%D0%BD%D1%8B%D0%B9%20%D0%B3%D1%80%D0%B8%D0%BC%D1%83%D0%B0%D1%80%C2%BB." target="_blank" rel="noopener">Спросить о курсе</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. Как проходит -->
+<section class="bg2">
+  <div class="wrap">
+    <div class="eyebrow rv">Как проходит</div>
+    <h2 class="rv">Четыре шага</h2>
+    <div class="steps">
+      <div class="card rv"><div class="num"></div><b>Пишете в WhatsApp</b><p>Коротко о ситуации и что хотите узнать.</p></div>
+      <div class="card rv" style="--d:.1s"><div class="num"></div><b>Оплата</b><p>В любой валюте, из любой страны.</p></div>
+      <div class="card rv" style="--d:.2s"><div class="num"></div><b>Расклад или чистка</b><p>Удалённо или лично в Алматы.</p></div>
+      <div class="card rv" style="--d:.3s"><div class="num"></div><b>Рекомендации</b><p>Что делать дальше и когда вернуться с вопросом.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. Обо мне -->
+<section>
+  <div class="wrap about">
+    <div class="arch rv"><div class="ph"></div></div>
+    <div>
+      <div class="eyebrow rv">Обо мне</div>
+      <h2 class="rv">Татьяна Игеликова</h2>
+      <p class="rv">Меня зовут Татьяна Игеликова. Я практикую 12 лет: Таро, чистки воском, нумерология. Моё пространство называется Taurus.</p>
+      <p class="rv">Работаю без «волшебной пыли». Мне важно найти причину: почему в отношениях появился третий, почему не продаётся квартира, почему деньги уходят сквозь пальцы. Сначала диагностика на Таро или воском, потом работа с тем, что нашли.</p>
+      <p class="rv">Принимаю лично в Алматы и удалённо — из любого города и страны. Веду обучение Таро и нумерологии.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- 7. Вопросы -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow rv">Частые вопросы</div>
+    <h2 class="rv">Прежде чем записаться</h2>
+    <details class="rv"><summary>Как работает чистка на расстоянии?</summary><p>Для работы с энергией расстояние значения не имеет. Мне нужны ваше фото и имя. Отливку я делаю у себя, показываю вам, что показал воск, и объясняю, что с этим делать дальше.</p></details>
+    <details class="rv"><summary>Что если карты покажут плохое?</summary><p>Карты показывают ситуацию и направление, в котором она движется. Это можно изменить. Я ищу корень проблемы и говорю, что с ним делать, поэтому после расклада у вас на руках план действий.</p></details>
+    <details class="rv"><summary>Кто узнает о моём вопросе?</summary><p>Никто. Переписка остаётся между нами.</p></details>
+    <details class="rv"><summary>Как оплатить, если я не в Казахстане?</summary><p>Оплатить можно в любой валюте. Реквизиты пришлю в WhatsApp.</p></details>
+    <details class="rv"><summary>Сколько ждать ответа?</summary><p>Расклад присылаю в течение суток после оплаты. Чистку проводим по записи, обычно в ближайшие два-три дня.</p></details>
+  </div>
+</section>
+
+<!-- 8. Финал -->
+<section class="final">
+  <div class="wrap">
+    <h2 class="rv">Напишите, с чем пришли</h2>
+    <p class="rv" style="color:var(--muted);margin:0">Отвечу и подскажу, какой расклад или чистка подойдут под вашу ситуацию.</p>
+    <div class="btns rv">
+      <a class="btn" href="https://wa.me/77072117701?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%A2%D0%B0%D1%82%D1%8C%D1%8F%D0%BD%D0%B0%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BD%D0%B0%20%D0%BA%D0%BE%D0%BD%D1%81%D1%83%D0%BB%D1%8C%D1%82%D0%B0%D1%86%D0%B8%D1%8E." target="_blank" rel="noopener">Написать в WhatsApp</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>Taurus · © Татьяна Игеликова · Instagram @numerolog_kz1<br>ИП Игеликова · ИИН 730428400759 · г. Алматы</footer>
+
+<div class="sticky"><a class="btn" href="https://wa.me/77072117701?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%A2%D0%B0%D1%82%D1%8C%D1%8F%D0%BD%D0%B0%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BD%D0%B0%20%D0%BA%D0%BE%D0%BD%D1%81%D1%83%D0%BB%D1%8C%D1%82%D0%B0%D1%86%D0%B8%D1%8E." target="_blank" rel="noopener">Записаться в WhatsApp</a></div>
+
+<script>
+(() => {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const fine = matchMedia('(pointer: fine)').matches;
+
+  /* ---------- появление при прокрутке ---------- */
+  const rv = document.querySelectorAll('.rv');
+  if (reduce || !('IntersectionObserver' in window)) rv.forEach(e => e.classList.add('in'));
+  else {
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { const t = e.target; t.classList.add("in"); io.unobserve(t); t.addEventListener("transitionend", () => t.style.transitionDelay = "0s", { once: true }); } }),
+      { rootMargin: '0px 0px -8% 0px', threshold: .08 });
+    rv.forEach(e => io.observe(e));
+  }
+
+  /* ---------- свет за курсором на карточках ---------- */
+  document.querySelectorAll('.card').forEach(c => c.addEventListener('pointermove', e => {
+    const r = c.getBoundingClientRect();
+    c.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+    c.style.setProperty('--my', (e.clientY - r.top) + 'px');
+  }));
+
+  /* ---------- параллакс первого экрана ---------- */
+  const stage = document.getElementById('stage');
+  if (!reduce && fine && stage) {
+    const layers = stage.querySelectorAll('[data-depth]');
+    let tx = 0, ty = 0, cx = 0, cy = 0;
+    addEventListener('pointermove', e => { tx = e.clientX / innerWidth - .5; ty = e.clientY / innerHeight - .5; });
+    (function loop() {
+      cx += (tx - cx) * .06; cy += (ty - cy) * .06;
+      layers.forEach(l => { const d = +l.dataset.depth; l.style.translate = (-cx * d) + 'px ' + (-cy * d) + 'px'; });
+      requestAnimationFrame(loop);
+    })();
+  }
+
+  /* ---------- золотая пыль ---------- */
+  const cv = document.getElementById('dust'), g = cv.getContext('2d');
+  let W, H, P = [], dpr = Math.min(devicePixelRatio || 1, 2);
+  function size() { W = cv.width = innerWidth * dpr; H = cv.height = innerHeight * dpr; }
+  function mk(y) { return { x: Math.random() * W, y: y ?? Math.random() * H, r: (Math.random() * 1.6 + .4) * dpr, v: (Math.random() * .25 + .06) * dpr,
+    w: Math.random() * 6.28, s: Math.random() * .02 + .005, a: Math.random() * .6 + .2 }; }
+  size(); addEventListener('resize', size);
+  const N = innerWidth < 700 ? 45 : 90;
+  for (let i = 0; i < N; i++) P.push(mk());
+  function draw() {
+    g.clearRect(0, 0, W, H);
+    for (const p of P) {
+      p.y -= p.v; p.w += p.s; p.x += Math.sin(p.w) * .25 * dpr;
+      if (p.y < -10) Object.assign(p, mk(H + 10));
+      const tw = .55 + .45 * Math.sin(p.w * 3);
+      g.beginPath(); g.arc(p.x, p.y, p.r, 0, 6.28);
+      g.fillStyle = `rgba(240,212,154,${p.a * tw})`; g.shadowColor = 'rgba(240,200,120,.9)'; g.shadowBlur = 8 * dpr; g.fill();
+    }
+    if (!reduce && !document.hidden) requestAnimationFrame(draw);
+  }
+  draw();
+  document.addEventListener('visibilitychange', () => { if (!document.hidden && !reduce) draw(); });
+
+  /* ---------- звук: синтез Web Audio, только по кнопке ---------- */
+  const btn = document.getElementById('snd'), lbl = btn.querySelector('.lbl');
+  let ctx, master, bus, chimeTimer, drone = [], on = false;
+
+  function impulse(sec) {
+    const len = ctx.sampleRate * sec, b = ctx.createBuffer(2, len, ctx.sampleRate);
+    for (let ch = 0; ch < 2; ch++) { const d = b.getChannelData(ch); for (let i = 0; i < len; i++) d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / len, 3); }
+    return b;
+  }
+  function setup() {
+    ctx = new (window.AudioContext || window.webkitAudioContext)();
+    master = ctx.createGain(); master.gain.value = 0; master.connect(ctx.destination);
+    const rev = ctx.createConvolver(); rev.buffer = impulse(4);
+    const wet = ctx.createGain(); wet.gain.value = .7; rev.connect(wet).connect(master);
+    bus = ctx.createGain(); bus.gain.value = 1; bus.connect(master); bus.connect(rev);
+  }
+  function startDrone() {
+    const lp = ctx.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.value = 520; lp.Q.value = .7;
+    const dg = ctx.createGain(); dg.gain.value = .05; lp.connect(dg).connect(bus);
+    const lfo = ctx.createOscillator(), lg = ctx.createGain(); lfo.frequency.value = .05; lg.gain.value = 220; lfo.connect(lg).connect(lp.frequency); lfo.start();
+    drone.push(lfo);
+    [[110, 'sine', 0], [110.4, 'triangle', 0], [164.8, 'sine', 3], [220, 'sine', -4], [329.6, 'sine', 5]].forEach(([f, t, det], i) => {
+      const o = ctx.createOscillator(), og = ctx.createGain();
+      o.type = t; o.frequency.value = f; o.detune.value = det; og.gain.value = i < 2 ? .6 : .22;
+      const trem = ctx.createOscillator(), tg = ctx.createGain(); trem.frequency.value = .07 + i * .031; tg.gain.value = og.gain.value * .5;
+      trem.connect(tg).connect(og.gain); trem.start();
+      o.connect(og).connect(lp); o.start(); drone.push(o, trem);
+    });
+  }
+  function bell(freq, vol = .05, dur = 3.2) {
+    const t = ctx.currentTime;
+    [[1, 1], [2.76, .35], [5.4, .12]].forEach(([m, a]) => {
+      const o = ctx.createOscillator(), e = ctx.createGain();
+      o.type = 'sine'; o.frequency.value = freq * m;
+      e.gain.setValueAtTime(0, t); e.gain.linearRampToValueAtTime(vol * a, t + .012); e.gain.exponentialRampToValueAtTime(.0001, t + dur / m ** .4);
+      o.connect(e).connect(bus); o.start(t); o.stop(t + dur + .1);
+    });
+  }
+  const PENT = [440, 523.25, 587.33, 659.25, 783.99, 880, 1046.5];
+  function chimes() { bell(PENT[Math.floor(Math.random() * PENT.length)], .035, 4.5); chimeTimer = setTimeout(chimes, 4000 + Math.random() * 6000); }
+
+  function soundOn() {
+    if (!ctx) { setup(); startDrone(); }
+    ctx.resume();
+    master.gain.cancelScheduledValues(ctx.currentTime);
+    master.gain.setTargetAtTime(.9, ctx.currentTime, .8);
+    bell(659.25, .05); setTimeout(() => bell(987.77, .04), 180);
+    clearTimeout(chimeTimer); chimeTimer = setTimeout(chimes, 2500);
+  }
+  function soundOff() {
+    clearTimeout(chimeTimer);
+    master.gain.cancelScheduledValues(ctx.currentTime);
+    master.gain.setTargetAtTime(0, ctx.currentTime, .35);
+    setTimeout(() => { if (!on) ctx.suspend(); }, 1800);
+  }
+  btn.addEventListener('click', () => {
+    on = !on; btn.classList.toggle('on', on); btn.setAttribute('aria-pressed', on);
+    btn.setAttribute('aria-label', on ? 'Выключить звук' : 'Включить звук');
+    lbl.textContent = on ? 'Звук вкл.' : 'Звук выкл.';
+    on ? soundOn() : soundOff();
+  });
+  document.querySelectorAll('.btn').forEach(b => {
+    b.addEventListener('pointerenter', () => { if (on) bell(PENT[5], .018, 1.6); });
+    b.addEventListener('click', () => { if (on) { bell(PENT[3], .04, 2.2); setTimeout(() => bell(PENT[6], .03, 2.6), 110); } });
+  });
+})();
+</script>
+</body>
+</html>
